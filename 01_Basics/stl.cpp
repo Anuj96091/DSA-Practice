@@ -97,7 +97,7 @@ For complex objects such as pairs emplace_back can be faster.
 void explainVector(){
 
     //Vector initialization
-
+    //vector<int> vector_name ;
     vector<int> vector_name = {1,2,3,4,5,6,7,8,9};
     cout<<vector_name[3]<<endl; // by this method one can access any element inside a vector.
     //-----------------------------VECTOR FUNCTIONS----------------------------------------------------
@@ -110,7 +110,8 @@ void explainVector(){
         cout<<vector_name[i]<<" ";
     }
     cout<<endl;
-
+    //For finding vector size:
+    cout<<"The size of the vector is :"<<vector_name.size()<<'\n';
 
     //vector resizing by using resize function
 
@@ -238,12 +239,21 @@ void explainVector(){
 
     }
     cout<<endl;
-     cout<<"adn vector v3 becomes :"<<endl;
+     cout<<"and vector v3 becomes :"<<endl;
     for(auto it : v3){
         cout<<it<< " ";
 
     }
     cout<<endl;
+
+    //reverse elements with in a vector:
+    vector<int> vector2 = {1,2,3,4,5,6};
+    reverse(vector2.begin(),vector2.end());
+    for(auto it : vector2){
+        cout<<it<<" ";
+    }
+    cout<<'\n';
+    
     
 
 
@@ -319,53 +329,224 @@ l.remove(0);         // Remove all occurrences
 
 }
 
-//------------------------------------- To be done ----------------------------------------------
-// // Stack
-// void explainStack(){
+
+// Stack
+void explainStack(){
 
 
 
-// }
+}
 
 
-// // Queue 
-// void explainQueue(){
-
-
-
-// }
-
-
-// // Priority Queue
-// void explainPriorityQueue(){
+// Queue 
+void explainQueue(){
 
 
 
-// }
+}
 
 
-// // Set
-// void explainSet(){
-
-
-
-// }
-
-
-// // Map
-// void explainMap(){
+// Priority Queue
+void explainPriorityQueue(){
 
 
 
-// }
+}
 
 
-// // Algorithms
-// void explainAlgorithms(){
+// Set
+void explainSet(){
 
 
 
-// }
+}
+
+
+// Map
+void explainMap(){
+/*
+Definition:
+-----------
+A map is an STL associative container that stores elements
+as KEY-VALUE pairs.
+Think of it like a dictionary
+
+Example:
+Key   -> Value
+101   -> "Anuj"
+102   -> "Rahul"
+
+Properties:
+-----------
+1. Stores elements in key-value pairs.
+2. Every key is UNIQUE.
+3. Values can be duplicated.
+4. Keys are stored in SORTED (ascending) order by default.
+5. Implemented using a Red-Black Tree (Self-Balancing BST).
+
+Syntax:
+-------
+map<key_datatype, value_datatype> map_name;
+
+Example:
+--------
+map<int, string> students;
+map<string, int> marks;
+map<char, int> freq;
+
+=============================================================
+                Time Complexity
+=============================================================
+
+Insertion      : O(log n)
+Searching      : O(log n)
+Deletion       : O(log n)
+Access         : O(log n)
+
+Reason:
+-------
+Since map is implemented using a Red-Black Tree.
+
+
+=============================================================
+                Traversing a Map
+=============================================================
+
+// Using iterator
+
+for(auto it = mp.begin(); it != mp.end(); it++)
+{
+    cout << it->first << " " << it->second << endl;
+}
+
+// Using range-based loop
+
+for(auto x : mp)
+{
+    cout << x.first << " " << x.second << endl;
+}
+
+=============================================================
+                Common Functions
+=============================================================
+
+begin()      -> Returns iterator to first element
+end()        -> Returns iterator after last element
+find(key)    -> Searches for key
+erase(key)   -> Deletes key
+size()       -> Returns number of elements
+empty()      -> Checks if map is empty
+clear()      -> Removes all elements
+count(key)   -> Returns 1 if key exists, else 0
+
+=============================================================
+                map vs unordered_map
+=============================================================
+
+map
+----
+• Stores keys in sorted order.
+• Implemented using Red-Black Tree.
+• Insert/Search/Delete -> O(log n)
+
+unordered_map
+-------------
+• Does NOT maintain any order.
+• Implemented using Hash Table.
+• Average Insert/Search/Delete -> O(1)
+
+=============================================================
+                Applications
+=============================================================
+
+• Frequency Counting
+• Student Records
+• Phone Directory
+• Employee Database
+• Dictionary
+• Graph Algorithms
+• Coordinate Compression
+
+=============================================================
+                Important Points
+=============================================================
+
+✓ Keys must be unique.
+✓ Values can be repeated.
+✓ Elements are automatically sorted according to keys.
+✓ Iterating over a map always gives sorted keys.
+✓ If a key already exists, inserting again updates its value.
+
+=============================================================
+                One-Line Definition
+=============================================================
+
+A map is an STL associative container that stores unique
+key-value pairs in sorted order using a Red-Black Tree,
+providing O(log n) insertion, deletion, and search.
+
+
+
+*/
+
+// =============================================================
+//                 Basic Operations
+// =============================================================
+
+//1. Insert----->writes or overwrites in the map at the entered key.
+
+map<int , int> mp;
+mp[1] = 100;
+mp.insert({2,200});
+mp.insert(make_pair(3,300));
+cout<<mp[1]<<" "<<mp[2]<<" "<<mp[3]<<'\n';
+
+// 2. Access
+
+mp[1];
+cout<<mp.at(2)<<'\n';
+
+// 3. Update
+
+mp[1] = 500;
+cout<<mp.at(1)<<'\n';
+
+// 4. Search
+int key=1;
+if(mp.find(key) != mp.end())
+{
+    cout<<"Key found"<<'\n';
+}
+else{
+    cout<<"Key not found"<<'\n';
+}
+
+// 5. Delete
+key = 1;
+mp.erase(key);
+// mp.at(key); (this will throw std::out_of_range)
+
+
+// 6. Size
+cout<<mp.size()<<'\n';
+
+// 7. Check Empty ------------> will return 0 if not empty and 1 if empty.
+map<int , int> mp2 ;
+cout<<mp.empty()<<'\n';//----------> 0 
+cout<<mp2.empty()<<'\n';//==========>1
+
+// 8. Clear
+mp.clear();
+cout<<mp.empty(); //========>will return 1 since the map became empty due to the clear command.
+}
+
+
+// Algorithms
+void explainAlgorithms(){
+
+
+
+}
 
 
 int main(){
@@ -373,5 +554,6 @@ int main(){
     // explainPair();
     explainVector();
     // explainList();
+    // explainMap();
     return 0;
 }
